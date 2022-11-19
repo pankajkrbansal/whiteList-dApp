@@ -5,9 +5,9 @@ pragma solidity >0.8.0;
 contract WhiteList {
     // mapping for users registered
     mapping(address => bool) whiteListedMembers;
-    address owner;
+    address private owner;
     uint256 maxWhiteListLimit;
-    uint256 whiteListCount;
+    uint256 private whiteListCount;
 
     modifier onlyOwner(address addr) {
         require(addr == owner, "Only Owner Can Call This Function");
@@ -20,6 +20,10 @@ contract WhiteList {
 
     function setWhiteListLimit(uint256 limit) external onlyOwner(msg.sender) {
         maxWhiteListLimit = limit;
+    }
+
+    function check() external pure returns(uint256){
+        return 2;
     }
 
     function addSendertoWhitelist() external{
