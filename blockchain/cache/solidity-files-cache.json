@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "D:\\buildspace\\whiteList-dApp\\blockchain\\contracts\\WhiteList.sol": {
-      "lastModificationDate": 1668859319279,
-      "contentHash": "562cd5c5faf712c8de56fca22c3ac6b5",
+      "lastModificationDate": 1669230695570,
+      "contentHash": "5690944f8f15cf58af5f577ca94260a3",
       "sourceName": "contracts/WhiteList.sol",
       "solcConfig": {
         "version": "0.8.17",

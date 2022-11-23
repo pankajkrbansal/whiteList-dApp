@@ -29,7 +29,7 @@ const {ethers} = require('hardhat');
 async function main(){
   const whiteListContract = await ethers.getContractFactory('WhiteList');
   const deployContract = await whiteListContract.deploy();
-  await deployContract.setWhiteListLimit('50');
+  await deployContract.setWhiteListLimit(50);
   await deployContract.deployed();
 
   console.log("WhiteList Contract Address = ", deployContract.address);

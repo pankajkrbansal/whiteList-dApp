@@ -5,16 +5,15 @@ import Form from "./Form";
 
 function Login() {
   const [isWalletConnected, setWalletConnected] = useState(false);
+  const [account, setAccount] = useState(null);
 
-  const checkForAccount = () => {
-    let accounts = window.ethereum.request({
+  const checkForAccount = async () => {
+    let accounts = await window.ethereum.request({
       method: "eth_accounts",
     });
-    console.log(accounts.length);
-    {
-      accounts.length == 0 || accounts.length == undefined
-        ? setWalletConnected(false)
-        : setWalletConnected(true);
+    // console.log(accounts);
+    if(accounts.length > 0){
+      setAccount(accounts[0]);
     }
   };
 
@@ -32,14 +31,10 @@ function Login() {
         ? setWalletConnected(false)
         : setWalletConnected(true);
     }
-    // checkForAccount();
+    checkForAccount();
     // console.log(isWalletConnected);
     // return accounts;
   };
-
-  // useEffect(async () => {
-  //   await checkForAccount();
-  // }, []);
 
   if (!isWalletConnected) {
     return (
@@ -51,7 +46,7 @@ function Login() {
       </div>
     );
   } else {
-    return <Form isWalletConnected />;
+    return <Form isWalletConnected={isWalletConnected} account = {account} />;
   }
 }
 

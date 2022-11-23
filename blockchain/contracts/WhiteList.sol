@@ -4,10 +4,10 @@ pragma solidity >0.8.0;
 
 contract WhiteList {
     // mapping for users registered
-    mapping(address => bool) whiteListedMembers;
+    mapping(address => bool) public whiteListedMembers;
     address private owner;
     uint256 maxWhiteListLimit;
-    uint256 private whiteListCount;
+    uint256 public whiteListCount;
 
     modifier onlyOwner(address addr) {
         require(addr == owner, "Only Owner Can Call This Function");
@@ -22,13 +22,9 @@ contract WhiteList {
         maxWhiteListLimit = limit;
     }
 
-    function check() external pure returns(uint256){
-        return 2;
-    }
-
     function addSendertoWhitelist() external{
         require(whiteListCount < maxWhiteListLimit, "List Is Full, Better Luck Next Time");
-        require(whiteListedMembers[msg.sender], "Member With This Address Is Already Registered");
+        require(!whiteListedMembers[msg.sender], "Member With This Address Is Already Registered");
 
         // adding member to white list
         whiteListedMembers[msg.sender] = true;

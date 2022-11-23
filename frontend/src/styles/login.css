@@ -1,0 +1,26 @@
+.button{
+    background-color: rgb(47, 47, 159);
+    padding: 15px;
+    color: white;
+    width: 200px;
+    font-weight: 500;
+    border-radius: 20px;
+  }
+  
+  .button:hover{
+    cursor: pointer;
+    background-color: rgb(90, 90, 231);
+    box-shadow: 10px 10px 10px grey;
+  }
+
+  .addr{
+    padding: 15px;
+    border-radius: 10px;
+    width: 50%;
+  }
+
+  .addr:hover{
+    cursor: pointer;
+    border-color:  chocolate;
+    /* border: 2px; */
+  }
