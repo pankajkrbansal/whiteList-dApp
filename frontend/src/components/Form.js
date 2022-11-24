@@ -11,7 +11,7 @@ export default function Form(data) {
     console.log(data);
     checkAddressInWitelist(data.account);
     console.log("Loaded");
-  }, []);
+  });
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
